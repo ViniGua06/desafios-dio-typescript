@@ -1,8 +1,21 @@
 "use strict";
-class Employee {
-    constructor(cod, name) {
-        this.codigo = cod;
-        this.nome = name;
-    }
-}
-const pessoa1 = new Employee(22, "Vinicius");
+const primeiraPessoa = {
+    nome: "Maria",
+    idade: 29,
+    profissao: "atriz",
+};
+const segundaPessoa = {
+    nome: "roberto",
+    idade: 19,
+    profissao: "padeiro",
+};
+const terciraPessoa = {
+    nome: "laura",
+    idade: 32,
+    profissao: "Atriz",
+};
+const quartaPessoa = {
+    nome: "carlos",
+    idade: 19,
+    profissao: "padeiro",
+};
