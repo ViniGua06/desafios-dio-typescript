@@ -1,29 +1,41 @@
-interface Pessoas {
-  nome: string;
-  idade: number;
-  profissao?: string;
+const botaoAtualizar = document.getElementById(
+  "atualizar-saldo"
+) as HTMLElement;
+const botaoLimpar = document.getElementById("limpar-saldo") as HTMLElement;
+const campoSaldo = document.getElementById("campo-saldo") as HTMLElement;
+const somaInput = document.getElementById("soma") as HTMLInputElement;
+
+if (campoSaldo) campoSaldo.innerHTML = "0";
+
+function somarAoSaldo(soma: number) {
+  if (campoSaldo) {
+    const saldoAtual = parseInt(campoSaldo.innerHTML);
+    if (!isNaN(saldoAtual)) {
+      campoSaldo.innerHTML = (saldoAtual + soma).toString();
+    }
+  }
 }
 
-const primeiraPessoa: Pessoas = {
-  nome: "Maria",
-  idade: 29,
-  profissao: "atriz",
-};
+function limparSaldo() {
+  if (campoSaldo) campoSaldo.innerHTML = "0";
+}
 
-const segundaPessoa: Pessoas = {
-  nome: "roberto",
-  idade: 19,
-  profissao: "padeiro",
-};
+botaoAtualizar?.addEventListener("click", function () {
+  if (somaInput) {
+    const valorSoma = parseFloat(somaInput.value);
+    if (!isNaN(valorSoma)) {
+      somarAoSaldo(valorSoma);
+    }
+  }
+});
 
-const terciraPessoa: Pessoas = {
-  nome: "laura",
-  idade: 32,
-  profissao: "Atriz",
-};
+botaoLimpar?.addEventListener("click", function () {
+  limparSaldo();
+});
 
-const quartaPessoa: Pessoas = {
-  nome: "carlos",
-  idade: 19,
-  profissao: "padeiro",
-};
+/**
+    <h4>Valor a ser adicionado: <input id="soma"> </h4>
+    <button id="atualizar-saldo">Atualizar saldo</button>
+    <button id="limpar-saldo">Limpar seu saldo</button>
+    <h1>"Seu saldo é: " <span id="campo-saldo"></span></h1>
+ */
